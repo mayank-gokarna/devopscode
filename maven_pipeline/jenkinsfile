@@ -1,0 +1,10 @@
+pieline {
+    agent any
+    stages  {
+        stage('Build') {
+            steps {
+                echo 'sample pipeline'
+            }
+        }
+    }
+}
