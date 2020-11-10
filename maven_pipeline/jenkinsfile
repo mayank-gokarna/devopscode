@@ -1,9 +1,23 @@
 pipeline {
-    agent any
-    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
+    agent none
+    stage('Back-end') {
+        agent {
+            docker {image 'maven:3-alpine'}
+        }
+        steps {
+            sh 'mvn --verson'
+        }
     }
+    stage( 'front-end') {
+        agent {
+            docker { image 'node:14-alpine'}
+        }
+        steps {
+            sh 'node --versoin'
+        }
+    }
+
+/*    
     stages  {
 
         stage('initialize') {
@@ -23,4 +37,6 @@ pipeline {
         }
 
     }
+*/
+
 }
